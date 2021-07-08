@@ -27,12 +27,12 @@ def questions(question_index):
     """ask question from the survey based on how many answered before"""
     print(responses)
     return render_template("question.html",
-        question = survey.questions[question_index])
+        question=survey.questions[question_index])
 
 @app.route("/answer",methods=["POST"])
 def answer_redirect():
     """appends response with the user's answer and redirects to another question or a thank you page"""
-    answer = request.form.get("answer")
+    answer = request.form["answer"]
     responses.append(answer)
     if len(responses) >= len(survey.questions):
         return redirect("/thanks")
