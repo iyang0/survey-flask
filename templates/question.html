@@ -16,7 +16,10 @@
         {{ choice }}
       </p>
       {% endfor %}
-
+      {% if question.allow_text == True %}
+      <textarea name= "comment"
+        width="100" height="100"></textarea>
+      {% endif %}
     <button>Continue</button>
   </form>
 
